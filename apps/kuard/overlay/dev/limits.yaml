@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuar
+spec:
+  template:
+    metadata:
+      labels:
+        app: kuar
+    spec:
+      containers:
+      - name: kuar
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+          requests:
+            memory: "100Mi"
+            cpu: "100m"

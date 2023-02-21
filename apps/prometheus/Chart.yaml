@@ -1,0 +1,16 @@
+apiVersion: v2
+name: kube-prometheus-stack
+description: kube-prometheus-stack
+
+type: application
+
+version: 45.1.1
+appVersion: v0.63.0
+
+dependencies:
+  - name: kube-prometheus-stack
+    alias: kube-prometheus-stack
+    repository: https://prometheus-community.github.io/helm-charts
+    version: 45.1.1
+
+# https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack/45.1.1

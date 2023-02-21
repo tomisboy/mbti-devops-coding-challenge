@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kuar
+  name: kuar
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuar
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: kuar
+    spec:
+      containers:
+      - name: kuar
+        image: gcr.io/kuar-demo/kuard-amd64:3
+        ports:
+        - containerPort: 8080

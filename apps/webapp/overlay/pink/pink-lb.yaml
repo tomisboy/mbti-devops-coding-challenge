@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pink-lb
+  name: pink-lb
+spec:
+  ports:
+  - port: 5002
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: color-webapp-pink
+  type: LoadBalancer
+status:
+  loadBalancer: {}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: color-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: color-webapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: color-webapp
+    spec:
+      containers:
+      - name: color-webapp
+        image: mmumshad/simple-webapp-color
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_COLOR
+          value: changethis

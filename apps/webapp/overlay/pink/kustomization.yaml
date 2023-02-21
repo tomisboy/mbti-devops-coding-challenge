@@ -1,0 +1,34 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base/
+- pink-lb.yaml
+- ingress.yaml
+patches:
+- target:
+    kind: Deployment
+    name: color-webapp
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: color-webapp-pink
+
+    - op: replace
+      path: /spec/template/spec/containers/0/name
+      value: color-webapp-pink
+      
+    - op: replace
+      path: /spec/selector/matchLabels/app
+      value: color-webapp-pink
+
+    - op: replace
+      path: /spec/template/metadata/labels/app
+      value: color-webapp-pink
+
+    - op: replace
+      path: /spec/replicas
+      value: 4
+
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: pink

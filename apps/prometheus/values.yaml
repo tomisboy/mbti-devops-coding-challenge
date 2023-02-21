@@ -1,0 +1,12 @@
+nameOverride: "prometheus"
+
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations: 
+       nginx.ingress.kubernetes.io/rewrite-target: /
+
+    labels: {}
+    path: /
+    pathType: Prefix
